@@ -1,6 +1,11 @@
 pipeline {
-    agent any
+    agent {
+        docker { image 'node:14-alpine'}
+    }
     stages {
+        stage ('Node installation') {
+            bat 'node --version'
+        }
         stage ('Stage  1') {
             steps {
                 bat 'echo this is the first Jenkins job'
