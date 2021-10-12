@@ -4,7 +4,9 @@ pipeline {
     }
     stages {
         stage ('Node installation') {
-            bat 'node --version'
+           steps {
+             bat 'node --version'
+           }
         }
         stage ('Stage  1') {
             steps {
