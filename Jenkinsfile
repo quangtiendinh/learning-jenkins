@@ -5,6 +5,9 @@ pipeline {
             steps {
                 echo 'Hello world from my repo'
             }
+            steps {
+                echo 'The job should be auto trigger'
+            }
         }
     }
 }
