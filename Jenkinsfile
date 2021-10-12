@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('Stage  1') {
             steps {
-                echo 'this is the first Jenkins job'
+                bat 'echo this is the first Jenkins job'
             }
         }
     }
