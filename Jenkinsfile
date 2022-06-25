@@ -1,7 +1,4 @@
 pipeline {
-    agent {
-        docker { image: 'node:16.13.1-alpine'}
-    }
     stages {
         stage ('Build') {
             steps {
@@ -12,9 +9,13 @@ pipeline {
     post {
         always {
             echo 'This will always run'
+            deleteDir() // clean up workspaces
         }
         success {
             echo 'This will run only successful'
+            mail to: 'dinhquangtien0169@gmail.com'
+                 subject: "The Pipeline ${currentBuild.fullDisplayName}"
+                 body: "The Pipeline ${currentBuild.fullDisplayName} completed successful"
         }
         failure {
             echo 'This will run only failed'
