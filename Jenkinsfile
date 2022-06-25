@@ -1,14 +1,27 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage ('Build') {
             steps {
-                sh 'echo  "Hello world"'
-                sh '''
-                    echo "Multiline shell step works too"
-                    ls -lah
-                '''
+                sh 'echo "Hello world"'
             }
+        }
+    }
+    post {
+        always {
+            echo 'This will always run'
+        }
+        success {
+            echo 'This will run only successful'
+        }
+        failure {
+            echo 'This will run only failed'
+        }
+        unstable {
+            echo 'This will run only run was marked or unstable'
+        }
+        changed {
+            echo 'This will run only if step Pipeline has changed'
         }
     }
 }
