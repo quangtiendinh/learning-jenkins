@@ -13,8 +13,8 @@ pipeline {
         }
         success {
             echo 'This will run only successful'
-            mail to: 'dinhquangtien0169@gmail.com'
-                 subject: "The Pipeline ${currentBuild.fullDisplayName}"
+            mail to: 'dinhquangtien0169@gmail.com',
+                 subject: "The Pipeline ${currentBuild.fullDisplayName}",
                  body: "The Pipeline ${currentBuild.fullDisplayName} completed successful"
         }
         failure {
